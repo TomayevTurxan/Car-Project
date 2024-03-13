@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
+import { generateCartImgUrl } from "@/utils";
 interface CarDetailsProps {
   isOpen: boolean;
   closeModal: () => void;
@@ -51,7 +52,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                   <div className="flex-1 flex flex-col gap-3">
                     <div className="relative w-full h-40 bg-pattern bg-cover bg-center rounded-lg">
                       <Image
-                        src="/hero.png"
+                        src={generateCartImgUrl(car,'23')}
                         fill
                         priority
                         alt="carImg"
@@ -61,7 +62,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                     <div className="flex gap-3">
                       <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
                         <Image
-                          src="/hero.png"
+                          src={generateCartImgUrl(car,'29')}
                           fill
                           priority
                           alt="carImg"
@@ -70,7 +71,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                       </div>
                       <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
                         <Image
-                          src="/hero.png"
+                          src={generateCartImgUrl(car,'33')}
                           fill
                           priority
                           alt="carImg"
@@ -79,7 +80,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                       </div>
                       <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
                         <Image
-                          src="/hero.png"
+                          src={generateCartImgUrl(car,'13')}
                           fill
                           priority
                           alt="carImg"
@@ -101,8 +102,12 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                           className="flex justify-between gap-5 w-full text-right"
                           key={key}
                         >
-                          <h4 className="text-grey capitalize">{key.split("_").join(" ")}</h4>
-                          <p className="text-black-100 font-semibold">{value}</p>
+                          <h4 className="text-grey capitalize">
+                            {key.split("_").join(" ")}
+                          </h4>
+                          <p className="text-black-100 font-semibold">
+                            {value}
+                          </p>
                         </div>
                       ))}
                     </div>

@@ -2,7 +2,7 @@
 import { CarProps } from "@/types";
 import { CustomButton } from ".";
 import React, { useState } from "react";
-import { calculateCarRent } from "@/utils";
+import { calculateCarRent, generateCartImgUrl } from "@/utils";
 import Image from "next/image";
 import CarDetails from "./CarDetails";
 
@@ -14,7 +14,7 @@ const CarCard = ({ car }: CarCardProps) => {
   const { city_mpg, year, make, model, transmission, drive } = car;
   const [isOpen, setIsOpen] = useState(false);
   const carRent = calculateCarRent(city_mpg, year);
-  
+
   return (
     <div className="car-card group">
       <div className="car-card__content">
@@ -30,7 +30,7 @@ const CarCard = ({ car }: CarCardProps) => {
       </div>
       <div className="relative w-full h-40 my-3 object-contain">
         <Image
-          src="/hero.png"
+          src={generateCartImgUrl(car, "23")}
           fill
           priority
           alt="carImg"
